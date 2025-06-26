@@ -63,17 +63,19 @@ static const char unknown_str[] = "n/a";
  *                                                     NULL on OpenBSD/FreeBSD
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
+ *
  */
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{netspeed_rx, "%sB/s    ", "wlan0"},
-	{cpu_perc, "%s    ", "NULL"},
-	{ram_used, "%s    ", "NULL"},
-	{temp, "%sC    ", "/sys/class/thermal/thermal_zone0/temp"},
-	{wifi_essid, "%s ", "wlan0"},
-	{battery_state, "%s ", "BAT0"},
-	{battery_perc, "%3s%%    ", "BAT0"},
-	{battery_remaining, "%s   ", "BAT0"},
-	{ datetime, "%s",           "%a %d %H:%M" },
-
+	{ cpu_perc, "CPU: %s%% | ", "NULL"},
+	{ ram_used, "RAM: %s | ", "NULL"},
+	{ disk_perc, "DISK: %s% | ", "/" },
+	//{ battery_state, "%s | ", "BAT0" },
+	{ battery_perc, "%3s%% | ", "BAT0" },
+	{ battery_remaining, "%s left | ", "BAT0" },
+	{ wifi_essid, "%s | ",  "wlan0" },
+	//{ wifi_perc, "(%s%%)", "wlan0" },
+        //{ temp, "TEMP: %siC", "/sys/class/thermal/thermal_zone0/temp" },
+	{ datetime, "%s", "%m-%d-%y %l:%M %p" },
 };
